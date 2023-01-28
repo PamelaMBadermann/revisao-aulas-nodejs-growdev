@@ -54,20 +54,21 @@ function imprimeAluno(aluno) {
     console.log(aluno.nome);
 }
 /** EXERCICIO */
-function calculaMediaAluno(nota1, nota2, aluno) {
+function calculaMediaAluno(nota1, nota2, aluno, avaliar) {
     var notas;
+    var soma;
+    var media;
     notas = [nota1, nota2];
-    var soma = notas.reduce(function (total, nota) { return total += nota; });
-    var media = soma / 2;
-    var avaliacaoMedia;
-    avaliacaoMedia = media >= 7 ? true : false;
+    soma = notas.reduce(function (total, nota) { return total += nota; });
+    media = soma / 2;
     console.log("".concat(aluno, ", sua m\u00E9dia \u00E9 ").concat(media, "."));
-    if (avaliacaoMedia) {
-        console.log("".concat(aluno, " aprovado."));
-    }
-    else {
-        console.log("".concat(aluno, " reprovado."));
+    if (avaliar) {
+        var avaliacaoDaMedia = void 0;
+        avaliacaoDaMedia = media >= 7 ? "aprovado" : "reprovado";
+        console.log("".concat(aluno, " ").concat(avaliacaoDaMedia, "."));
     }
     return media;
 }
-calculaMediaAluno(8, 9, "Pamela");
+calculaMediaAluno(8, 9, "Pamela", true);
+calculaMediaAluno(5, 3, "Jussara", true);
+calculaMediaAluno(7, 4, "Angus", false);

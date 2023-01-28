@@ -78,24 +78,27 @@ function imprimeAluno(aluno: Aluno) {
 }
 
 /** EXERCICIO */
-function calculaMediaAluno(nota1: number, nota2: number, aluno: string): number {
+function calculaMediaAluno(nota1: number, nota2: number, aluno: string, avaliar?: boolean): number {
   let notas: number[];
-  notas = [nota1, nota2];
+  let soma: number;
+  let media: number;
 
-  let soma = notas.reduce((total: number, nota: number): number => total += nota);
-  let media: number = soma / 2;
-  let avaliacaoMedia: boolean;
-  avaliacaoMedia = media >= 7 ? true : false;
+  notas = [nota1, nota2];
+  soma = notas.reduce((total: number, nota: number): number => total += nota);
+  media = soma / 2;
 
   console.log(`${aluno}, sua média é ${media}.`)
 
-  if (avaliacaoMedia) {
-    console.log(`${aluno} aprovado.`);
-  } else {
-    console.log(`${aluno} reprovado.`);
+  if (avaliar) {
+    let avaliacaoDaMedia: string;
+    avaliacaoDaMedia = media >= 7 ? "aprovado" : "reprovado";
+
+    console.log(`${aluno} ${avaliacaoDaMedia}.`);
   }
 
   return media;
 }
 
-calculaMediaAluno(8, 9, "Pamela");
+calculaMediaAluno(8, 9, "Pamela", true);
+calculaMediaAluno(5, 3, "Jussara", true);
+calculaMediaAluno(7, 4, "Angus", false);
