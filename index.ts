@@ -1,28 +1,23 @@
 console.log("teste de typescript");
 
 let x: number = 10;
-// console.log(x);
 
 let texto: string;
 texto = "meu texto";
-// console.log(texto);
 
 let meuBool: boolean;
 meuBool = false;
-// console.log(meuBool);
 
 let meuArray: string[];
 meuArray = ["teste", "dois"];
-// console.log(meuArray);
 
 let minhaTupla: [string, number];
-// tupla é um array de vários tipos
+
+/** tupla é um array de vários tipos */
 minhaTupla = ["1", 1];
-// console.log(minhaTupla);
 
 let minhaTuplaDois: Array<number | string>;
 minhaTuplaDois = [1, 2, 3, "teste", 1];
-// console.log(minhaTuplaDois);
 
 enum SimNao {
   Sim = 1,
@@ -37,11 +32,6 @@ enum TipoCompra {
   Agiota = "T"
 }
 
-// console.log(SimNao.Sim);
-// console.log(SimNao.Nao);
-// console.log(SimNao.Talvez);
-// console.log(SimNao.QuemSabe);
-
 let meuObjeto: object;
 meuObjeto = {
   nome: "pamela",
@@ -53,15 +43,59 @@ meuObjetoTipado = {
   idade: 26,
   nome: "Pamela"
 }
-console.log(meuObjetoTipado);
 
-interface Cliente {
-  nome: string,
-  idade: number
+interface Aluno {
+  nome: string;
+  idade: number;
+  notas?: Array<number>;
 }
 
-let MeuCliente: Cliente; 7
+interface AlunoDiferenciado extends Aluno {
+  descricao: string
+}
+
+let MeuCliente: Aluno;
 MeuCliente = {
   idade: 20,
-  nome: "Pamela"
+  nome: "Pamela",
+  notas: [1, 2, 3]
 }
+
+function imprimeNomeAluno(nome: any, idade?: number, idade2?: number) {
+  console.log(`O nome é ${nome}, ${idade} anos.`);
+}
+
+/** Tipando o retorno da função */
+function soma(x: number, y: number): number {
+  return x + y;
+}
+
+let minhaSoma = soma(10, 20);
+
+/** Função que não retorna nada */
+function imprimeAluno(aluno: Aluno) {
+  console.log(aluno.nome)
+}
+
+/** EXERCICIO */
+function calculaMediaAluno(nota1: number, nota2: number, aluno: string): number {
+  let notas: number[];
+  notas = [nota1, nota2];
+
+  let soma = notas.reduce((total: number, nota: number): number => total += nota);
+  let media: number = soma / 2;
+  let avaliacaoMedia: boolean;
+  avaliacaoMedia = media >= 7 ? true : false;
+
+  console.log(`${aluno}, sua média é ${media}.`)
+
+  if (avaliacaoMedia) {
+    console.log(`${aluno} aprovado.`);
+  } else {
+    console.log(`${aluno} reprovado.`);
+  }
+
+  return media;
+}
+
+calculaMediaAluno(8, 9, "Pamela");

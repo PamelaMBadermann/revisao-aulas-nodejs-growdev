@@ -1,23 +1,17 @@
 "use strict";
 console.log("teste de typescript");
 var x = 10;
-// console.log(x);
 var texto;
 texto = "meu texto";
-// console.log(texto);
 var meuBool;
 meuBool = false;
-// console.log(meuBool);
 var meuArray;
 meuArray = ["teste", "dois"];
-// console.log(meuArray);
 var minhaTupla;
-// tupla é um array de vários tipos
+/** tupla é um array de vários tipos */
 minhaTupla = ["1", 1];
-// console.log(minhaTupla);
 var minhaTuplaDois;
 minhaTuplaDois = [1, 2, 3, "teste", 1];
-// console.log(minhaTuplaDois);
 var SimNao;
 (function (SimNao) {
     SimNao[SimNao["Sim"] = 1] = "Sim";
@@ -31,10 +25,6 @@ var TipoCompra;
     TipoCompra["Parcelado"] = "P";
     TipoCompra["Agiota"] = "T";
 })(TipoCompra || (TipoCompra = {}));
-// console.log(SimNao.Sim);
-// console.log(SimNao.Nao);
-// console.log(SimNao.Talvez);
-// console.log(SimNao.QuemSabe);
 var meuObjeto;
 meuObjeto = {
     nome: "pamela",
@@ -45,5 +35,39 @@ meuObjetoTipado = {
     idade: 26,
     nome: "Pamela"
 };
-console.log(meuObjetoTipado);
 var MeuCliente;
+MeuCliente = {
+    idade: 20,
+    nome: "Pamela",
+    notas: [1, 2, 3]
+};
+function imprimeNomeAluno(nome, idade, idade2) {
+    console.log("O nome \u00E9 ".concat(nome, ", ").concat(idade, " anos."));
+}
+/** Tipando o retorno da função */
+function soma(x, y) {
+    return x + y;
+}
+var minhaSoma = soma(10, 20);
+/** Função que não retorna nada */
+function imprimeAluno(aluno) {
+    console.log(aluno.nome);
+}
+/** EXERCICIO */
+function calculaMediaAluno(nota1, nota2, aluno) {
+    var notas;
+    notas = [nota1, nota2];
+    var soma = notas.reduce(function (total, nota) { return total += nota; });
+    var media = soma / 2;
+    var avaliacaoMedia;
+    avaliacaoMedia = media >= 7 ? true : false;
+    console.log("".concat(aluno, ", sua m\u00E9dia \u00E9 ").concat(media, "."));
+    if (avaliacaoMedia) {
+        console.log("".concat(aluno, " aprovado."));
+    }
+    else {
+        console.log("".concat(aluno, " reprovado."));
+    }
+    return media;
+}
+calculaMediaAluno(8, 9, "Pamela");
