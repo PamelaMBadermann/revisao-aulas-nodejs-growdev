@@ -1,9 +1,5 @@
-npm init -y
-npm start
-npm install typescript
-npx tsc index.js
-npx tsc --init
+##Revisão de aulas de backend em Node.js
 
-# alterar o outDir no tsconfig, e mudar o target para es5
+Olá, esse é o meu repositório de revisão das aulas de backend em Node.js pela growdev.
 
-npx tsc | node ./dist/index.js
+Para rodar o projeto: npx tsc.
