@@ -19,6 +19,18 @@ var SimNao;
     SimNao[SimNao["Talvez"] = 3] = "Talvez";
     SimNao[SimNao["QuemSabe"] = 4] = "QuemSabe";
 })(SimNao || (SimNao = {}));
+/** DIFERENÇA ENTRE ENUM E INTERFACE
+ *
+interface EnumSimNao {
+  Sim: string,
+  Nao: string
+}
+
+let f: EnumSimNao = {
+  Sim: "A",
+  Nao: "B"
+}
+*/
 var TipoCompra;
 (function (TipoCompra) {
     TipoCompra["AVista"] = "A";
@@ -35,8 +47,8 @@ meuObjetoTipado = {
     idade: 26,
     nome: "Pamela"
 };
-var MeuCliente;
-MeuCliente = {
+var meuCliente;
+meuCliente = {
     idade: 20,
     nome: "Pamela",
     notas: [1, 2, 3]
@@ -53,7 +65,7 @@ var minhaSoma = soma(10, 20);
 function imprimeAluno(aluno) {
     console.log(aluno.nome);
 }
-/** EXERCICIO */
+/** EXERCICIO 1 */
 function calculaMediaAluno(notas, aluno, avaliar) {
     var soma;
     var media;
@@ -68,5 +80,24 @@ function calculaMediaAluno(notas, aluno, avaliar) {
     return media;
 }
 calculaMediaAluno([8, 9], "Pamela", true);
-// calculaMediaAluno([5, 3], "Jussara", true);
-// calculaMediaAluno([7, 4], "Angus", false);
+calculaMediaAluno([5, 3], "Jussara", true);
+calculaMediaAluno([7, 4], "Angus", false);
+/** SOLUÇÃO EXERCICIO 1 */
+/** Function as type */
+// Arrow function
+var somaArrow = function (x, y) {
+    return x + y;
+};
+var resultado = somaArrow(3, 5);
+var minhaFunc;
+minhaFunc: (function (nome) {
+    return 1;
+});
+function calculaIndiceAluno(media, aluno) {
+    if (aluno.notas) {
+        media(aluno.notas);
+    }
+}
+var minhaFuncMedia = function (notas) { return notas[0]; };
+calculaIndiceAluno(minhaFuncMedia, meuCliente);
+calculaIndiceAluno(function (notas) { return notas[1]; }, meuCliente);

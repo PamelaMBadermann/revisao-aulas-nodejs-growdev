@@ -26,6 +26,19 @@ enum SimNao {
   QuemSabe,
 }
 
+/** DIFERENÇA ENTRE ENUM E INTERFACE
+ * 
+interface EnumSimNao {
+  Sim: string,
+  Nao: string
+}
+
+let f: EnumSimNao = {
+  Sim: "A",
+  Nao: "B"
+}
+*/
+
 enum TipoCompra {
   AVista = "A",
   Parcelado = "P",
@@ -54,8 +67,8 @@ interface AlunoDiferenciado extends Aluno {
   descricao: string
 }
 
-let MeuCliente: Aluno;
-MeuCliente = {
+let meuCliente: Aluno;
+meuCliente = {
   idade: 20,
   nome: "Pamela",
   notas: [1, 2, 3]
@@ -77,7 +90,7 @@ function imprimeAluno(aluno: Aluno) {
   console.log(aluno.nome)
 }
 
-/** EXERCICIO */
+/** EXERCICIO 1 */
 function calculaMediaAluno(notas: Array<number>, aluno: string, avaliar?: boolean): number {
   let soma: number;
   let media: number;
@@ -98,5 +111,35 @@ function calculaMediaAluno(notas: Array<number>, aluno: string, avaliar?: boolea
 }
 
 calculaMediaAluno([8, 9], "Pamela", true);
-// calculaMediaAluno([5, 3], "Jussara", true);
-// calculaMediaAluno([7, 4], "Angus", false);
+calculaMediaAluno([5, 3], "Jussara", true);
+calculaMediaAluno([7, 4], "Angus", false);
+/** SOLUÇÃO EXERCICIO 1 */
+
+/** Function as type */
+
+// Arrow function
+let somaArrow = function (x: number, y: number): number {
+  return x + y;
+};
+
+let resultado = somaArrow(3, 5);
+
+let minhaFunc: (nome: string) => number;
+minhaFunc: (nome: string) => {
+  return 1;
+};
+
+function calculaIndiceAluno(
+  media: (notas: number[]) => number,
+  aluno: Aluno
+): void {
+  if (aluno.notas) {
+    media(aluno.notas);
+  }
+}
+
+let minhaFuncMedia = (notas: number[]) => { return notas[0] };
+
+calculaIndiceAluno(minhaFuncMedia, meuCliente);
+
+calculaIndiceAluno((notas: number[]) => { return notas[1] }, meuCliente)
