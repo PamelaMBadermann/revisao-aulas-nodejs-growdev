@@ -101,3 +101,19 @@ function calculaIndiceAluno(media, aluno) {
 var minhaFuncMedia = function (notas) { return notas[0]; };
 calculaIndiceAluno(minhaFuncMedia, meuCliente);
 calculaIndiceAluno(function (notas) { return notas[1]; }, meuCliente);
+/** EXERCICIO */
+function mediaDeTres(a, b, c) {
+    var soma;
+    var media;
+    soma = a + b + c;
+    media = soma / 3;
+    console.log(media);
+    if (media >= 6) {
+        console.log("APROVADA");
+    }
+    else {
+        console.log("REPROVADA");
+    }
+    return media;
+}
+mediaDeTres(1, 10, 30);

@@ -110,10 +110,7 @@ function calculaMediaAluno(notas: Array<number>, aluno: string, avaliar?: boolea
   return media;
 }
 
-calculaMediaAluno([8, 9], "Pamela", true);
-calculaMediaAluno([5, 3], "Jussara", true);
 calculaMediaAluno([7, 4], "Angus", false);
-/** SOLUÇÃO EXERCICIO 1 */
 
 /** Function as type */
 
@@ -143,3 +140,25 @@ let minhaFuncMedia = (notas: number[]) => { return notas[0] };
 calculaIndiceAluno(minhaFuncMedia, meuCliente);
 
 calculaIndiceAluno((notas: number[]) => { return notas[1] }, meuCliente)
+
+/** EXERCICIO */
+
+function mediaDeTres(a: number, b: number, c: number) {
+  let soma: number;
+  let media: number;
+
+  soma = a + b + c;
+  media = soma / 3;
+
+  console.log(media);
+
+  if (media >= 6) {
+    console.log("APROVADA")
+  } else {
+    console.log("REPROVADA")
+  }
+
+  return media;
+}
+
+mediaDeTres(1, 10, 30);
