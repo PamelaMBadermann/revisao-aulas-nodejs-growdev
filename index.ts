@@ -78,12 +78,10 @@ function imprimeAluno(aluno: Aluno) {
 }
 
 /** EXERCICIO */
-function calculaMediaAluno(nota1: number, nota2: number, aluno: string, avaliar?: boolean): number {
-  let notas: number[];
+function calculaMediaAluno(notas: Array<number>, aluno: string, avaliar?: boolean): number {
   let soma: number;
   let media: number;
 
-  notas = [nota1, nota2];
   soma = notas.reduce((total: number, nota: number): number => total += nota);
   media = soma / 2;
 
@@ -99,6 +97,6 @@ function calculaMediaAluno(nota1: number, nota2: number, aluno: string, avaliar?
   return media;
 }
 
-calculaMediaAluno(8, 9, "Pamela", true);
-calculaMediaAluno(5, 3, "Jussara", true);
-calculaMediaAluno(7, 4, "Angus", false);
+calculaMediaAluno([8, 9], "Pamela", true);
+// calculaMediaAluno([5, 3], "Jussara", true);
+// calculaMediaAluno([7, 4], "Angus", false);
