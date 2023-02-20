@@ -1,5 +1,4 @@
 "use strict";
-console.log("teste de typescript");
 var x = 10;
 var texto;
 texto = "meu texto";
@@ -20,7 +19,7 @@ var SimNao;
     SimNao[SimNao["QuemSabe"] = 4] = "QuemSabe";
 })(SimNao || (SimNao = {}));
 /** DIFERENÇA ENTRE ENUM E INTERFACE
- *
+
 interface EnumSimNao {
   Sim: string,
   Nao: string
@@ -30,6 +29,7 @@ let f: EnumSimNao = {
   Sim: "A",
   Nao: "B"
 }
+
 */
 var TipoCompra;
 (function (TipoCompra) {
@@ -79,10 +79,7 @@ function calculaMediaAluno(notas, aluno, avaliar) {
     }
     return media;
 }
-calculaMediaAluno([8, 9], "Pamela", true);
-calculaMediaAluno([5, 3], "Jussara", true);
-calculaMediaAluno([7, 4], "Angus", false);
-/** SOLUÇÃO EXERCICIO 1 */
+// calculaMediaAluno([7, 4], "Angus", false);
 /** Function as type */
 // Arrow function
 var somaArrow = function (x, y) {
@@ -116,4 +113,34 @@ function mediaDeTres(a, b, c) {
     }
     return media;
 }
-mediaDeTres(1, 10, 30);
+// mediaDeTres(7, 10, 8);
+/** EXERCICIO INTERFACE */
+var Cambio;
+(function (Cambio) {
+    Cambio["Manual"] = "A";
+    Cambio["Automatico"] = "M";
+})(Cambio || (Cambio = {}));
+function detalharCarro(carro) {
+    var cambio;
+    var mensagemDetalhamentoCarro;
+    cambio = detalhaCambio(carro);
+    mensagemDetalhamentoCarro = "Carro ".concat(carro.modelo, " - ").concat(carro.marca, ", ano ").concat(carro.ano, ", c\u00E2mbio ").concat(cambio, ".");
+    console.log(mensagemDetalhamentoCarro);
+}
+function detalhaCambio(carro) {
+    var tipoDeCambio;
+    if (carro.cambio === Cambio.Automatico) {
+        tipoDeCambio = "automático";
+    }
+    else {
+        tipoDeCambio = "manual";
+    }
+    return tipoDeCambio;
+}
+var exemploCarro = {
+    marca: "Ford",
+    modelo: "Fiesta",
+    ano: 2013,
+    cambio: Cambio.Automatico
+};
+detalharCarro(exemploCarro);

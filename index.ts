@@ -1,5 +1,3 @@
-console.log("teste de typescript");
-
 let x: number = 10;
 
 let texto: string;
@@ -27,7 +25,7 @@ enum SimNao {
 }
 
 /** DIFERENÇA ENTRE ENUM E INTERFACE
- * 
+
 interface EnumSimNao {
   Sim: string,
   Nao: string
@@ -37,6 +35,7 @@ let f: EnumSimNao = {
   Sim: "A",
   Nao: "B"
 }
+
 */
 
 enum TipoCompra {
@@ -110,7 +109,7 @@ function calculaMediaAluno(notas: Array<number>, aluno: string, avaliar?: boolea
   return media;
 }
 
-calculaMediaAluno([7, 4], "Angus", false);
+// calculaMediaAluno([7, 4], "Angus", false);
 
 /** Function as type */
 
@@ -161,4 +160,49 @@ function mediaDeTres(a: number, b: number, c: number) {
   return media;
 }
 
-mediaDeTres(1, 10, 30);
+// mediaDeTres(7, 10, 8);
+
+/** EXERCICIO INTERFACE */
+
+enum Cambio {
+  Manual = "A",
+  Automatico = "M"
+}
+
+interface Carro {
+  marca: string,
+  modelo: string,
+  ano: number,
+  cambio: string
+}
+
+function detalharCarro(carro: Carro) {
+  let cambio: string;
+  let mensagemDetalhamentoCarro: string;
+
+  cambio = detalhaCambio(carro);
+  mensagemDetalhamentoCarro = `Carro ${carro.modelo} - ${carro.marca}, ano ${carro.ano}, câmbio ${cambio}.`;
+
+  console.log(mensagemDetalhamentoCarro);
+}
+
+function detalhaCambio(carro: Carro): string {
+  let tipoDeCambio: string;
+
+  if (carro.cambio === Cambio.Automatico) {
+    tipoDeCambio = "automático"
+  } else {
+    tipoDeCambio = "manual"
+  }
+
+  return tipoDeCambio;
+}
+
+let exemploCarro = {
+  marca: "Ford",
+  modelo: "Fiesta",
+  ano: 2013,
+  cambio: Cambio.Automatico
+}
+
+detalharCarro(exemploCarro);
