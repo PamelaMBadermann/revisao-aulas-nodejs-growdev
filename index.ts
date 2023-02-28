@@ -90,7 +90,7 @@ function imprimeAluno(aluno: Aluno) {
 }
 
 /** EXERCICIO 1 */
-function calculaMediaAluno(notas: Array<number>, aluno: string, avaliar?: boolean): number {
+function calclaMediaAluno(notas: Array<number>, aluno: string, avaliar?: boolean): number {
   let soma: number;
   let media: number;
 
@@ -109,7 +109,7 @@ function calculaMediaAluno(notas: Array<number>, aluno: string, avaliar?: boolea
   return media;
 }
 
-// calculaMediaAluno([7, 4], "Angus", false);
+// calclaMediaAluno([7, 4], "Angus", false);
 
 /** Function as type */
 
@@ -125,7 +125,7 @@ minhaFunc: (nome: string) => {
   return 1;
 };
 
-function calculaIndiceAluno(
+function calclaIndiceAluno(
   media: (notas: number[]) => number,
   aluno: Aluno
 ): void {
@@ -136,9 +136,9 @@ function calculaIndiceAluno(
 
 let minhaFuncMedia = (notas: number[]) => { return notas[0] };
 
-calculaIndiceAluno(minhaFuncMedia, meuCliente);
+calclaIndiceAluno(minhaFuncMedia, meuCliente);
 
-calculaIndiceAluno((notas: number[]) => { return notas[1] }, meuCliente)
+calclaIndiceAluno((notas: number[]) => { return notas[1] }, meuCliente)
 
 /** EXERCICIO */
 
@@ -205,4 +205,79 @@ let exemploCarro = {
   cambio: Cambio.Automatico
 }
 
-detalharCarro(exemploCarro);
+// detalharCarro(exemploCarro);
+
+/** EXERCÍCIO SINTAXES E VARIAVEIS */
+
+for (let a = 2; a <= 20; a++) {
+  // console.log(a);
+}
+
+for (let b = 10; b >= 0; b--) {
+  // console.log(b);
+}
+
+for (let c = 1; c <= 10; c++) {
+  // console.log(c * 7);
+}
+
+let meses: Array<string>;
+meses = ["Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"];
+
+for (let mes in meses) {
+  // console.log(meses[mes]);
+}
+
+let mesesAoContrario: Array<string>;
+mesesAoContrario = meses.reverse();
+
+for (let mes in meses) {
+  // console.log(meses[mes]);
+}
+
+let notasDoAluno: Array<number>;
+let quantidadeNotas: number;
+
+notasDoAluno = [8, 9, 7, 8, 8];
+quantidadeNotas = notasDoAluno.length;
+
+let aptoCalcularMedia: boolean;
+
+function calculaMediaAluno(notas: Array<number>) {
+  let soma: number = notasDoAluno.reduce(function (acumulador, valorAtual, index) {
+    let soma: number;
+    soma = acumulador + valorAtual;
+
+    if (index + 1 === quantidadeNotas) {
+      aptoCalcularMedia = true;
+    } else {
+      aptoCalcularMedia = false;
+    }
+
+    return soma;
+  });
+
+  if (aptoCalcularMedia) {
+    let media: number;
+    media = soma / quantidadeNotas;
+
+    console.log(`A média do aluno é ${media}`);
+  }
+}
+
+// calculaMediaAluno(notasDoAluno);
+
+let agregaAteDez: number = 0;
+let somaAteDez: number = 0;
+
+while (agregaAteDez < 10) {
+  agregaAteDez++
+
+  somaAteDez += agregaAteDez;
+  console.log(somaAteDez);
+
+  if (agregaAteDez === 10) {
+    console.log(somaAteDez);
+  }
+}
+

@@ -66,7 +66,7 @@ function imprimeAluno(aluno) {
     console.log(aluno.nome);
 }
 /** EXERCICIO 1 */
-function calculaMediaAluno(notas, aluno, avaliar) {
+function calclaMediaAluno(notas, aluno, avaliar) {
     var soma;
     var media;
     soma = notas.reduce(function (total, nota) { return total += nota; });
@@ -79,7 +79,7 @@ function calculaMediaAluno(notas, aluno, avaliar) {
     }
     return media;
 }
-// calculaMediaAluno([7, 4], "Angus", false);
+// calclaMediaAluno([7, 4], "Angus", false);
 /** Function as type */
 // Arrow function
 var somaArrow = function (x, y) {
@@ -90,14 +90,14 @@ var minhaFunc;
 minhaFunc: (function (nome) {
     return 1;
 });
-function calculaIndiceAluno(media, aluno) {
+function calclaIndiceAluno(media, aluno) {
     if (aluno.notas) {
         media(aluno.notas);
     }
 }
 var minhaFuncMedia = function (notas) { return notas[0]; };
-calculaIndiceAluno(minhaFuncMedia, meuCliente);
-calculaIndiceAluno(function (notas) { return notas[1]; }, meuCliente);
+calclaIndiceAluno(minhaFuncMedia, meuCliente);
+calclaIndiceAluno(function (notas) { return notas[1]; }, meuCliente);
 /** EXERCICIO */
 function mediaDeTres(a, b, c) {
     var soma;
@@ -143,4 +143,58 @@ var exemploCarro = {
     ano: 2013,
     cambio: Cambio.Automatico
 };
-detalharCarro(exemploCarro);
+// detalharCarro(exemploCarro);
+/** EXERCÍCIO SINTAXES E VARIAVEIS */
+for (var a = 2; a <= 20; a++) {
+    // console.log(a);
+}
+for (var b = 10; b >= 0; b--) {
+    // console.log(b);
+}
+for (var c = 1; c <= 10; c++) {
+    // console.log(c * 7);
+}
+var meses;
+meses = ["Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"];
+for (var mes in meses) {
+    // console.log(meses[mes]);
+}
+var mesesAoContrario;
+mesesAoContrario = meses.reverse();
+for (var mes in meses) {
+    // console.log(meses[mes]);
+}
+var notasDoAluno;
+var quantidadeNotas;
+notasDoAluno = [8, 9, 7, 8, 8];
+quantidadeNotas = notasDoAluno.length;
+var aptoCalcularMedia;
+function calculaMediaAluno(notas) {
+    var soma = notasDoAluno.reduce(function (acumulador, valorAtual, index) {
+        var soma;
+        soma = acumulador + valorAtual;
+        if (index + 1 === quantidadeNotas) {
+            aptoCalcularMedia = true;
+        }
+        else {
+            aptoCalcularMedia = false;
+        }
+        return soma;
+    });
+    if (aptoCalcularMedia) {
+        var media = void 0;
+        media = soma / quantidadeNotas;
+        console.log("A m\u00E9dia do aluno \u00E9 ".concat(media));
+    }
+}
+// calculaMediaAluno(notasDoAluno);
+var agregaAteDez = 0;
+var somaAteDez = 0;
+while (agregaAteDez < 10) {
+    agregaAteDez++;
+    somaAteDez += agregaAteDez;
+    console.log(somaAteDez);
+    if (agregaAteDez === 10) {
+        console.log(somaAteDez);
+    }
+}
