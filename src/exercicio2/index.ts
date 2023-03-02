@@ -36,10 +36,10 @@ class Escola {
   }
 
   mensagemAprovacao(aluno: Aluno): void {
-    let resultado: string;
     let mediaAluno: number;
-
     mediaAluno = this.calcularMedia(aluno);
+
+    let resultado: string;
     resultado = mediaAluno >= 6 ? "APROVADO" : "REPROVADO";
 
     let mensagem: string;
