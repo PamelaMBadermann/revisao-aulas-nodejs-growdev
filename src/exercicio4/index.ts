@@ -51,3 +51,38 @@ function main() {
 }
 
 main();
+
+interface Automovel {
+  ligar(): void;
+  desligar(): void;
+  acelerar(): void;
+  frear(): void;
+  ligarArCondicionado(): void;
+}
+
+class Carro implements Automovel {
+  public ligar(): void {
+    console.log("ligando o carro");
+    this.injetarGasolina();
+  }
+
+  private injetarGasolina(): void {
+    console.log("injetando gasolina");
+  }
+
+  public desligar(): void {
+    console.log("desligando carro");
+  }
+
+  public acelerar(): void {
+    console.log("acelerando carro");
+  }
+
+  public frear(): void {
+    console.log("freando carro");
+  }
+
+  public ligarArCondicionado(): void {
+    console.log("ligando ar condicionado");
+  }
+}
