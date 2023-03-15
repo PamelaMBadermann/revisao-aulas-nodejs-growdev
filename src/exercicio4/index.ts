@@ -20,3 +20,14 @@ class Cachorro extends Animal {
     this.raca = raca;
   }
 }
+
+function run() {
+  const dog = new Cachorro("doguinho", 10, "golden");
+
+  console.log(dog.nome)
+  console.log(dog.idade)
+  console.log(dog.raca)
+  dog.andar()
+}
+
+run();
