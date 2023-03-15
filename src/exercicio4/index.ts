@@ -1,34 +1,53 @@
-class Animal {
+abstract class Animal {
+  public nome: string;
+  public idade: number;
+
+  constructor(nome: string, idade: number) {
+    this.nome = nome;
+    this.idade = idade;
+  }
+
+  public emitirSom() {
+    console.log("emitinsdo som genérico do animal");
+  }
+
   public andar() {
     console.log('andando');
   }
 }
 
-class Cachorro {
-  public nome: string;
-  public idade: number;
+class Cachorro extends Animal {
   public raca: string;
-  public animal: Animal;
 
-  constructor(nome: string, idade: number, raca: string, animal: Animal) {
-    this.nome = nome;
-    this.idade = idade;
+  constructor(nome: string, idade: number, raca: string) {
+    super(nome, idade);
     this.raca = raca;
-    this.animal = animal;
   }
 
-  public andar() {
-    this.animal.andar();
+  public emitirSom() {
+    console.log("au au");
   }
 }
 
-function run() {
-  const dog = new Cachorro("doguinho", 10, "golden", new Animal());
+class Gato extends Animal {
+  public raca: string;
 
-  console.log(dog.nome)
-  console.log(dog.idade)
-  console.log(dog.raca)
-  dog.andar()
+  constructor(nome: string, idade: number, raca: string) {
+    super(nome, idade);
+    this.raca = raca;
+  }
+
+  public emitirSom() {
+    console.log("miau")
+  }
 }
 
-run();
+function main() {
+  const dog = new Cachorro("doguinho", 10, "golden");
+  const cat = new Gato("gatinho", 4, "sem raca");
+
+  dog.emitirSom();
+  cat.emitirSom();
+}
+
+main();
