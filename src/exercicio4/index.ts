@@ -8,11 +8,11 @@ abstract class Animal {
   }
 
   public emitirSom() {
-    console.log("emitinsdo som genérico do animal");
+    console.log("emitindo som genérico do animal");
   }
 
   public andar() {
-    console.log('andando');
+    console.log("andando");
   }
 }
 
