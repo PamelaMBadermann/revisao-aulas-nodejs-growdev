@@ -28,10 +28,19 @@ class Pessoa {
   }
 
   comer(): void {
+    this.peso + 0.1;
+    this.pesar();
+
     console.log("comendo");
   }
 
+  pesar(): number {
+    return this.peso;
+  }
+
   fazerAniversario(): void {
-    console.log("parabéms pra vc");
+    this.idade++;
+
+    console.log(`parabéns pra você, pelos seus ${this.idade} anos`);
   }
 }
