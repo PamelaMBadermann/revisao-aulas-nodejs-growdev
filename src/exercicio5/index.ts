@@ -2,11 +2,11 @@ class Pessoa {
   public nome: string;
   public idade: number;
   private cpf: string;
-  public telefone: number;
+  public telefone: string;
   public altura: number;
   public peso: number;
 
-  constructor(nome: string, idade: number, cpf: string, telefone: number, altura: number, peso: number) {
+  constructor(nome: string, idade: number, cpf: string, telefone: string, altura: number, peso: number) {
     this.nome = nome;
     this.idade = idade;
     this.cpf = cpf;
@@ -16,31 +16,37 @@ class Pessoa {
   }
 
   andar(): void {
-    console.log("andando");
+    console.log(`${this.nome} andando`);
   }
 
   falar(): void {
-    console.log("falando");
+    console.log(`${this.nome} falando`);
   }
 
   recuperarCPF(): string {
+    console.log(`seu cpf é ${this.cpf}`);
+
     return this.cpf;
   }
 
   comer(): void {
-    this.peso + 0.1;
-    this.pesar();
+    this.peso = this.peso + 0.2;
 
-    console.log("comendo");
-  }
-
-  pesar(): number {
-    return this.peso;
+    console.log(`${this.nome} comendo, agora com ${this.peso.toFixed(2)} kg`);
   }
 
   fazerAniversario(): void {
     this.idade++;
 
-    console.log(`parabéns pra você, pelos seus ${this.idade} anos`);
+    console.log(`parabéns ${this.nome}, pelos seus ${this.idade} anos`);
   }
 }
+
+const pami = new Pessoa("Pamela", 26, "666.666.666-66", "51 9 9999-9999", 1.57, 49);
+pami.andar();
+pami.falar();
+pami.recuperarCPF();
+pami.comer();
+pami.comer();
+pami.comer();
+pami.fazerAniversario();
