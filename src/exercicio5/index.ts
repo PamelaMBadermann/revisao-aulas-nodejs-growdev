@@ -50,3 +50,7 @@ pami.comer();
 pami.comer();
 pami.comer();
 pami.fazerAniversario();
+
+class Funcionario extends Pessoa {
+
+}
