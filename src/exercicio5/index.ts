@@ -1,4 +1,4 @@
-class Pessoa {
+class Person {
   public nome: string;
   public idade: number;
   private cpf: string;
@@ -42,15 +42,15 @@ class Pessoa {
   }
 }
 
-const pami = new Pessoa("Pamela", 26, "666.666.666-66", "51 9 9999-9999", 1.57, 49);
-pami.andar();
-pami.falar();
-pami.recuperarCPF();
-pami.comer();
-pami.comer();
-pami.comer();
-pami.fazerAniversario();
-
-class Funcionario extends Pessoa {
-
+function criarPessoa() {
+  const pami = new Person("Pamela", 26, "666.666.666-66", "51 9 9999-9999", 1.57, 49);
+  pami.andar();
+  pami.falar();
+  pami.recuperarCPF();
+  pami.comer();
+  pami.comer();
+  pami.comer();
+  pami.fazerAniversario();
 }
+
+criarPessoa();
