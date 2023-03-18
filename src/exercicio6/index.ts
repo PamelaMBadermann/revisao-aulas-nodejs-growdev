@@ -17,3 +17,27 @@ abstract class Pessoa {
     console.log(`${this.nome} falando`);
   }
 }
+
+class Funcionario extends Pessoa {
+  public cargo: string;
+  public salario: number;
+
+  constructor(nome: string, idade: number, telefone: string, cargo: string, salario: number) {
+    super(nome, idade, telefone);
+
+    this.cargo = cargo;
+    this.salario = salario;
+  }
+
+  aumentarSalario(aumento: number): void {
+    this.salario = this.salario + aumento;
+  }
+
+  trocarDeCargo(cargo: string): void {
+    this.cargo = cargo;
+  }
+}
+
+function admitirFuncionario() {
+
+}
