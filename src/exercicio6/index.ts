@@ -31,13 +31,22 @@ class Funcionario extends Pessoa {
 
   aumentarSalario(aumento: number): void {
     this.salario = this.salario + aumento;
+
+    console.log(this.salario);
   }
 
   trocarDeCargo(cargo: string): void {
     this.cargo = cargo;
+
+    console.log(this.cargo);
   }
 }
 
 function admitirFuncionario() {
+  const novoFuncionario = new Funcionario("pamela", 26, "51 99999-6666", "desenvolvedora jr.", 3000);
 
+  novoFuncionario.aumentarSalario(1000)
+  novoFuncionario.trocarDeCargo("desenvolvedora pl.");
 }
+
+admitirFuncionario();
